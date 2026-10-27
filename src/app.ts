@@ -7,7 +7,7 @@ import {
   getDayNumber,
   validateConfig,
 } from './schedule.ts';
-import { STORAGE_KEYS, readStored, writeStored, validateChecks } from './storage.ts';
+import { STORAGE_KEYS, readStored, writeStored, readDayChecks, migrateLegacyChecks } from './storage.ts';
 
 type ButtonId = 'prevMonth' | 'nextMonth' | 'prevDay' | 'nextDay';
 function getElement(id: 'configEditor'): HTMLTextAreaElement;
@@ -24,7 +24,9 @@ const configResponse = await fetch(`${import.meta.env.BASE_URL}config.json`);
 if (!configResponse.ok) throw new Error('Не вдалося завантажити config.json');
 const defaultConfig = validateConfig(await configResponse.json());
 let config = readStored(STORAGE_KEYS.config, defaultConfig, validateConfig);
-const checks: CheckboxStates = readStored(STORAGE_KEYS.checks, {}, validateChecks);
+migrateLegacyChecks();
+const checksByDate = new Map<string, CheckboxStates>();
+let checks: CheckboxStates = {};
 let selectedDate = clampDate(getToday());
 let visibleMonth = firstOfMonth(selectedDate);
 
@@ -116,8 +118,7 @@ function renderCalendar() {
 }
 
 function checkboxKey(entry: ScheduleEntry) {
-  // Keep the existing format so previously saved checkmarks still work.
-  return `${selectedDate}|${entry.key}`;
+  return entry.key;
 }
 
 function renderProgress(dayEntries: ScheduleEntry[]) {
@@ -141,7 +142,7 @@ function createEntryRow(entry: ScheduleEntry) {
   checkbox.setAttribute('aria-label', `Відмітити: ${entry.name} ${entry.dose}`);
   checkbox.addEventListener('change', () => {
     checks[key] = checkbox.checked;
-    if (!writeStored(STORAGE_KEYS.checks, checks)) {
+    if (!writeStored(selectedDate, checks)) {
       alert('Браузер не дозволив зберегти відмітки. Вони діють до закриття сторінки.');
     }
     render();
@@ -202,6 +203,10 @@ function renderGroups(dayEntries: ScheduleEntry[]) {
 }
 
 function render() {
+  if (!checksByDate.has(selectedDate)) {
+    checksByDate.set(selectedDate, readDayChecks(selectedDate));
+  }
+  checks = checksByDate.get(selectedDate)!;
   renderCalendar();
   const dayNumber = getDayNumber(config.startDate, selectedDate);
   getElement('daynum').textContent =

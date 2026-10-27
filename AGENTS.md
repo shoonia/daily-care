@@ -46,7 +46,8 @@ Keep rule IDs stable: saved checkboxes depend on them. The `walk` rule is delibe
 ## Browser storage
 
 - `rhythm-config`: optional configuration saved through the Rules dialog.
-- `rhythm-checks`: checkbox states keyed by `date|ruleId@time`.
+- `YYYY-MM-DD`: one localStorage object per day, with checkbox states keyed by `ruleId@time`.
+- `rhythm-checks`: legacy data, migrated automatically without overwriting existing daily values.
 
 Checkbox changes are saved immediately. Configuration and checkbox data are loaded independently, with fallbacks for missing or malformed data. Preserve existing user data and handle storage failures without breaking the page.
 
@@ -60,7 +61,7 @@ Run `npm test`, `npm run typecheck`, and `npm run build` for logic or build chan
 
 `node_modules/` and `dist/` are ignored. Commit `package-lock.json` and use `npm ci` in CI. Keep `public/` for files copied unchanged, not JavaScript/CSS entry points.
 
-For browser checks, verify affected entries, navigation, checkbox persistence, and small-screen layout. Restore temporary test checkmarks. Keep the existing storage keys and checkbox key format to preserve user data.
+For browser checks, verify affected entries, navigation, checkbox persistence, and small-screen layout. Restore temporary test checkmarks. Preserve daily date keys and entry keys; migrate legacy data before removing it.
 
 When delivering `calendar-site.zip`, package the source and a production `dist/` build, excluding `.git/`, `node_modules/`, and the archive itself.
 
