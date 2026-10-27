@@ -218,7 +218,6 @@ function render() {
 
 function openConfigEditor() {
   getElement('configEditor').value = JSON.stringify(config, null, 2);
-  getElement('configNote').textContent = config.note || '';
   getElement('configError').textContent = '';
   getElement('editor').showModal();
 }

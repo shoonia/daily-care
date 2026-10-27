@@ -104,3 +104,7 @@ Prefer readable array methods (`map`, `filter`, `flatMap`, `reduce`, `forEach`, 
 ## Visual theme
 
 The user requested a Ukrainian Plants vs. Zombies-inspired garden theme for a teenage fan. Keep the sunflower, peashooter, lawn, and zombie decoration static. Do not add a game, collectible rewards, or medication-based scoring. Preserve readable green morning sections and blue evening sections.
+
+## PWA and interface cleanup
+
+The user requested removing the references section and explanatory modal paragraphs. Keep the modal title, JSON editor, action buttons, and validation feedback. The PWA manifest uses Ukrainian labels, a sunflower icon, and relative start/scope paths for GitHub Pages. Preserve offline support and avoid forced reloads while the user edits configuration.

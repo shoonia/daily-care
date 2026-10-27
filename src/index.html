@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#f6f7f2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Мій ритм" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <title>Мій ритм · календар турботи</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
@@ -87,30 +91,6 @@
           </p>
         </section>
       </div>
-      <details class="sources">
-        <summary>Перевірені назви та джерела</summary>
-        <p>
-          Тіоктацид 600 HR — таблетки 600 мг. Глюкофаж XR — таблетки пролонгованої дії
-          1000 мг. Гептрал — кишковорозчинні таблетки (силу вашої упаковки не вказано).
-          Креон 25000 — капсули. Урсосан — форму та силу уточнити. Піколінат хрому та
-          вітамін D — без виробника неможливо встановити точний продукт.
-        </p>
-        <a href="https://drlz.moz.gov.ua/register/product/55187">Тіоктацид: реєстр МОЗ</a>
-        ·
-        <a href="https://acino.ua/wp-content/uploads/2020/07/Glucophage_XR_1000_2018.pdf"
-          >Глюкофаж XR: інструкція виробника</a
-        >
-        ·
-        <a href="https://drlz.moz.gov.ua/register/product/23178">Гептрал: реєстр МОЗ</a> ·
-        <a href="https://ecatalog.moz.gov.ua/UA-000000000-000012261-000023607"
-          >Креон: каталог МОЗ</a
-        >
-        ·
-        <a href="https://drlz.moz.gov.ua/register/product/26194">Урсосан: реєстр МОЗ</a> ·
-        <a href="https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/"
-          >Хром: NIH</a
-        >
-      </details>
       <footer>Мій ритм <span>Зомбі полюють на мізки. А ти — бережи свої 🧠🌻</span></footer>
     </main>
     <dialog id="editor">
@@ -118,12 +98,6 @@
         <h2>Правила календаря</h2>
         <button id="closeEditor" aria-label="Закрити">✕</button>
       </div>
-      <p>
-        Редагуйте JSON: назви, дози, час, тривалість і фази. Зміни діятимуть лише в цьому
-        браузері; для всіх пристроїв змініть файл config.json. Медичні зміни погоджуйте з
-        лікарем.
-      </p>
-      <p id="configNote"></p>
       <textarea
         id="configEditor"
         spellcheck="false"

@@ -73,3 +73,7 @@ The schedule records user-provided information and is not a verified prescriptio
 TypeScript uses strict checking via `tsconfig.json`. Domain types live in `src/types.ts`; validate external JSON at runtime before treating it as a typed configuration.
 
 `src/` is the Vite application root. Static configuration stays in the project-level `public/`; Vite copies it into the project-level `dist/`. Keep package files, TypeScript/Vite configuration, and `test/` at the project root.
+
+## Install on a phone
+
+The production build includes `manifest.json`, a service worker, and sunflower icons. On Android, use the browser's **Install app / Add to Home screen** command. On iPhone, open the site in Safari and choose **Share → Add to Home Screen**. After the first online visit finishes caching, the calendar can open offline. Saved checkmarks remain in localStorage. New versions activate when the app is reopened; an open configuration editor is not forcibly reloaded.
