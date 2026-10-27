@@ -2,7 +2,6 @@ import type { CheckboxStates } from './types.ts';
 
 export const STORAGE_KEYS = {
   config: 'rhythm-config',
-  checks: 'rhythm-checks',
 };
 
 export function readStored<T>(
@@ -42,30 +41,3 @@ export function readDayChecks(date: string): CheckboxStates {
   return readStored(date, {}, validateChecks);
 }
 
-/** Preserve old marks, while letting existing per-day values take precedence. */
-export function migrateLegacyChecks(): boolean {
-  try {
-    const legacyJson = localStorage.getItem(STORAGE_KEYS.checks);
-    if (legacyJson === null) return true;
-    const legacyChecks = validateChecks(JSON.parse(legacyJson));
-    const days = Object.entries(legacyChecks).reduce((days, [key, checked]) => {
-      const separator = key.indexOf('|');
-      const date = key.slice(0, separator);
-      const entryKey = key.slice(separator + 1);
-      if (separator < 0 || !/^\d{4}-\d{2}-\d{2}$/.test(date) || !entryKey) return days;
-      const checks = days.get(date) ?? {};
-      checks[entryKey] = checked;
-      days.set(date, checks);
-      return days;
-    }, new Map<string, CheckboxStates>());
-
-    const migrated = Array.from(days).every(([date, checks]) =>
-      writeStored(date, { ...checks, ...readDayChecks(date) }),
-    );
-    // Keep the original intact if a storage write fails, so the next load can retry.
-    if (migrated) localStorage.removeItem(STORAGE_KEYS.checks);
-    return migrated;
-  } catch {
-    return false;
-  }
-}

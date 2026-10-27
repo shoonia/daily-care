@@ -38,7 +38,7 @@ Rule courses start at the calendar start. Walking is rendered last without chang
 
 ## Browser storage
 
-Each day has its own localStorage key (`YYYY-MM-DD`), containing checkbox states keyed by `ruleId@time`. Legacy `rhythm-checks` data is migrated automatically; the old key is removed only after successful writes. A saved Rules configuration uses `rhythm-config` and overrides the default JSON, including after deployments. To load new defaults, open Rules, choose the initial rules button, review, and save. This does not erase checkmarks.
+Each day has its own localStorage key (`YYYY-MM-DD`), containing checkbox states keyed by `ruleId@time`. A saved Rules configuration uses `rhythm-config` and overrides the default JSON, including after deployments. To load new defaults, open Rules, choose the initial rules button, review, and save. This does not erase checkmarks.
 
 Storage is specific to the browser and origin. Keep using the same hostname and port to retain access to existing data. There is no account sync or push notification service.
 

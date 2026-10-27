@@ -7,7 +7,7 @@ import {
   getDayNumber,
   validateConfig,
 } from './schedule.ts';
-import { STORAGE_KEYS, readStored, writeStored, readDayChecks, migrateLegacyChecks } from './storage.ts';
+import { STORAGE_KEYS, readStored, writeStored, readDayChecks } from './storage.ts';
 
 type ButtonId = 'prevMonth' | 'nextMonth' | 'prevDay' | 'nextDay';
 function getElement(id: 'configEditor'): HTMLTextAreaElement;
@@ -24,7 +24,6 @@ const configResponse = await fetch(`${import.meta.env.BASE_URL}config.json`);
 if (!configResponse.ok) throw new Error('Не вдалося завантажити config.json');
 const defaultConfig = validateConfig(await configResponse.json());
 let config = readStored(STORAGE_KEYS.config, defaultConfig, validateConfig);
-migrateLegacyChecks();
 const checksByDate = new Map<string, CheckboxStates>();
 let checks: CheckboxStates = {};
 let selectedDate = clampDate(getToday());

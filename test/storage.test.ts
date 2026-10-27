@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { afterEach, beforeEach, describe, it } from 'node:test';
-import { migrateLegacyChecks, readDayChecks, writeStored } from '../src/storage.ts';
+import { readDayChecks, writeStored } from '../src/storage.ts';
 
 const originalStorage = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
 let savedValues: Map<string, string>;
@@ -17,7 +17,6 @@ beforeEach(() => {
         if (failWrites) throw new Error('Storage is full');
         savedValues.set(key, value);
       },
-      removeItem: (key: string) => savedValues.delete(key),
     },
   });
 });
@@ -40,29 +39,16 @@ describe('Daily checkbox storage', () => {
     assert.deepEqual(readDayChecks('2026-10-30'), {});
   });
 
-  it('migrates old marks into date keys without overriding newer daily choices', () => {
-    writeStored('rhythm-checks', {
-      '2026-10-28|water@08:00': true,
-      '2026-10-29|walk@20:00': true,
-    });
-    writeStored('2026-10-28', { 'water@08:00': false });
-
-    assert.equal(migrateLegacyChecks(), true);
-    assert.deepEqual(readDayChecks('2026-10-28'), { 'water@08:00': false });
-    assert.deepEqual(readDayChecks('2026-10-29'), { 'walk@20:00': true });
-    assert.equal(savedValues.has('rhythm-checks'), false);
-    assert.equal(migrateLegacyChecks(), true);
+  it('returns an empty day for malformed stored data', () => {
+    savedValues.set('2026-10-28', 'invalid JSON');
+    assert.deepEqual(readDayChecks('2026-10-28'), {});
   });
 
-  it('keeps the original data when migration cannot save a day', () => {
-    writeStored('rhythm-checks', { '2026-10-28|water@08:00': true });
+  it('reports a failed save without changing the existing day', () => {
+    writeStored('2026-10-28', { 'water@08:00': true });
     failWrites = true;
 
-    assert.equal(migrateLegacyChecks(), false);
-    assert.equal(savedValues.has('rhythm-checks'), true);
-
-    failWrites = false;
-    assert.equal(migrateLegacyChecks(), true);
+    assert.equal(writeStored('2026-10-28', { 'water@08:00': false }), false);
     assert.deepEqual(readDayChecks('2026-10-28'), { 'water@08:00': true });
   });
 });
