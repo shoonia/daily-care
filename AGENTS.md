@@ -100,3 +100,7 @@ The canonical build command is `npm run build`: strict typecheck → tests → V
 `src/` is the Vite application root. Static configuration stays in the project-level `public/`; Vite copies it into the project-level `dist/`. Keep package files, TypeScript/Vite configuration, and `test/` at the project root.
 
 Prefer readable array methods (`map`, `filter`, `flatMap`, `reduce`, `forEach`, and `Array.from`) for collection transformations and rendering. Preserve ordering and keep stateful logic explicit.
+
+## Visual theme
+
+The user requested a Ukrainian Plants vs. Zombies-inspired garden theme for a teenage fan. Keep the sunflower, peashooter, lawn, and zombie decoration static. Do not add a game, collectible rewards, or medication-based scoring. Preserve readable green morning sections and blue evening sections.

@@ -10,13 +10,40 @@
   <body>
     <main>
       <header>
-        <a class="brand" href="./"><span class="logo">✳</span> мій ритм</a
+        <a class="brand" href="./"><span class="logo" aria-hidden="true">🌻</span> мій ритм</a
         ><button id="settings">⚙ Правила</button>
       </header>
       <section class="intro">
-        <span class="eyebrow">ЩОДЕННИК ТУРБОТИ ПРО СЕБЕ</span>
-        <h1>Маленькі кроки.<br /><em>Щодня для себе.</em></h1>
+        <span class="eyebrow">САД ТУРБОТИ · ЗОМБІ ЗА ПАРКАНОМ</span>
+        <h1>Твій день.<br /><em>Твій квітучий сад.</em></h1>
         <p id="range"></p>
+      </section>
+      <section class="garden-banner" aria-label="Сад у стилі Рослини проти зомбі">
+        <div class="garden-copy">
+          <span class="garden-tag">СОНЯШНИКИ НА ВАРТІ</span>
+          <h2>Зомбі зачекають.<br />Спочатку — турбота про себе.</h2>
+          <p>Сонячний ранок, спокійний вечір і твій план на кожен день.</p>
+        </div>
+        <div class="garden-scene" aria-hidden="true">
+          <span class="garden-sun">☀</span>
+          <div class="garden-fence"></div>
+          <span class="garden-zombie">🧟</span>
+          <span class="garden-flower">🌻</span>
+          <svg class="garden-peashooter" viewBox="0 0 120 150" fill="none">
+            <path d="M58 132V70" stroke="#438c35" stroke-width="11" stroke-linecap="round"/>
+            <path d="M56 118C23 118 19 94 23 90C47 87 58 104 56 118Z" fill="#64ae43" stroke="#397c2e" stroke-width="3"/>
+            <path d="M60 132C84 107 101 111 102 118C91 140 74 141 60 132Z" fill="#78bb4e" stroke="#397c2e" stroke-width="3"/>
+            <ellipse cx="51" cy="53" rx="35" ry="32" fill="#8acb52" stroke="#3d842e" stroke-width="4"/>
+            <path d="M68 39L98 31V70L68 64" fill="#8acb52" stroke="#3d842e" stroke-width="4"/>
+            <ellipse cx="98" cy="50" rx="12" ry="21" fill="#5eaa39" stroke="#3d842e" stroke-width="4"/>
+            <ellipse cx="100" cy="50" rx="5" ry="12" fill="#294f27"/>
+            <ellipse cx="49" cy="45" rx="5" ry="8" fill="#273f25"/>
+            <circle cx="47" cy="42" r="2" fill="white"/>
+            <path d="M30 58C33 63 39 65 43 64" stroke="#568e36" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span class="garden-pea"></span>
+          <span class="garden-grass">🌱</span>
+        </div>
       </section>
       <div class="workspace">
         <aside>
@@ -84,7 +111,7 @@
           >Хром: NIH</a
         >
       </details>
-      <footer>Мій ритм <span>Турбота починається з простих речей.</span></footer>
+      <footer>Мій ритм <span>Зомбі полюють на мізки. А ти — бережи свої 🧠🌻</span></footer>
     </main>
     <dialog id="editor">
       <div class="editorhead">

@@ -471,3 +471,173 @@ textarea {
 .row.done .dosage {
   opacity: 0.65;
 }
+
+/* A playful garden theme inspired by Plants vs. Zombies; purely decorative. */
+:root {
+  background: #f5f7ec;
+}
+.logo {
+  background: #edf2cf;
+  padding: 6px 9px;
+}
+.intro {
+  padding-bottom: 20px;
+}
+.intro h1 em {
+  color: #6b923e;
+}
+.garden-banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  min-height: 210px;
+  margin-bottom: 34px;
+  overflow: hidden;
+  border: 1px solid #d5e3b5;
+  border-radius: 22px;
+  background: linear-gradient(110deg, #eff5da 20%, #e4f0c9 100%);
+}
+.garden-copy {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+}
+.garden-tag {
+  display: inline-block;
+  color: #637332;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.garden-copy h2 {
+  margin: 12px 0;
+  color: #36542c;
+  font-size: 24px;
+  line-height: 1.35;
+}
+.garden-copy p {
+  max-width: 340px;
+  margin: 0;
+  color: #617448;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.garden-scene {
+  position: relative;
+  min-height: 210px;
+  isolation: isolate;
+  background: radial-gradient(ellipse at bottom, #97c15e 0%, #cfe3ad 54%, transparent 55%);
+}
+.garden-scene::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 66% 0 0;
+  border-radius: 50% 0 0 0;
+  background: repeating-conic-gradient(#a3c971 0% 25%, #acd17c 0% 50%) 0 0 / 64px 48px;
+}
+.garden-sun {
+  position: absolute;
+  top: 10px;
+  left: 35%;
+  color: #f4b930;
+  font-size: 62px;
+  text-shadow: 0 0 22px #fff3a3;
+}
+.garden-fence {
+  position: absolute;
+  z-index: -1;
+  bottom: 48px;
+  right: 0;
+  width: 55%;
+  height: 55px;
+  transform: rotate(-3deg);
+  background: repeating-linear-gradient(90deg, #f8f3d9 0 13px, transparent 13px 24px);
+  border-top: 7px solid #e5dbb7;
+  border-bottom: 7px solid #e5dbb7;
+}
+.garden-flower {
+  position: absolute;
+  left: 0;
+  bottom: 16px;
+  font-size: 83px;
+  filter: drop-shadow(0 5px 0 #6a903c33);
+  transform: rotate(-7deg);
+}
+.garden-peashooter {
+  position: absolute;
+  left: 28%;
+  bottom: 6px;
+  width: 115px;
+  height: 145px;
+  filter: drop-shadow(0 4px 0 #5c843326);
+}
+.garden-zombie {
+  position: absolute;
+  right: 8px;
+  bottom: 40px;
+  font-size: 79px;
+  transform: rotate(9deg);
+  filter: saturate(.8);
+}
+.garden-pea {
+  position: absolute;
+  top: 46%;
+  right: 26%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #b4ec6a, #519527);
+  box-shadow: 0 2px 2px #4d753c33;
+}
+.garden-grass {
+  position: absolute;
+  right: 14%;
+  bottom: 4px;
+  font-size: 29px;
+}
+aside {
+  border-color: #dde5cf;
+}
+.morning .grouphead {
+  background: #e6efd7;
+}
+@media (max-width: 760px) {
+  .garden-banner {
+    grid-template-columns: 1fr;
+    margin-bottom: 24px;
+  }
+  .garden-copy {
+    padding: 22px 22px 0;
+  }
+  .garden-copy h2 {
+    font-size: 23px;
+  }
+  .garden-scene {
+    min-height: 170px;
+    margin-top: 0;
+  }
+  .garden-flower {
+    left: 5%;
+    font-size: 72px;
+  }
+  .garden-sun {
+    top: -8px;
+    left: 56%;
+    font-size: 52px;
+  }
+  .garden-peashooter {
+    left: 30%;
+    width: 100px;
+    height: 125px;
+  }
+  .garden-zombie {
+    right: 7%;
+    font-size: 70px;
+    bottom: 35px;
+  }
+  .garden-pea {
+    top: 44%;
+    right: 29%;
+  }
+}
