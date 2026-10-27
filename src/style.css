@@ -1,0 +1,473 @@
+:root {
+  font-family: Manrope, system-ui, sans-serif;
+  color: #253e36;
+  background: #f6f7f2;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 30px 40px;
+}
+button,
+a,
+input {
+  touch-action: manipulation;
+}
+button {
+  font: inherit;
+  border: 1px solid #dce2db;
+  background: #fff;
+  color: #314c42;
+  border-radius: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+  min-height: 44px;
+}
+button:hover {
+  background: #eaf0e7;
+}
+button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #e9ad55;
+  outline-offset: 3px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dfe4db;
+  padding-bottom: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 800;
+  color: inherit;
+}
+.logo {
+  background: #dfead8;
+  padding: 4px 12px;
+  border-radius: 13px;
+  font-size: 30px;
+}
+.intro {
+  padding: 48px 0 36px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #77887b;
+}
+h1 {
+  font-size: 46px;
+  letter-spacing: -2px;
+  line-height: 1.2;
+  margin: 15px 0 20px;
+  font-weight: 600;
+}
+h1 em {
+  font-style: normal;
+  color: #7b936b;
+}
+.intro p {
+  color: #7a877c;
+  font-size: 13px;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 36px;
+}
+aside {
+  align-self: start;
+  background: #fff;
+  border: 1px solid #e4e8df;
+  padding: 22px;
+  border-radius: 22px;
+}
+.calnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+.calnav button {
+  padding: 4px 10px;
+  border: 0;
+  font-size: 24px;
+}
+.calnav strong {
+  font-size: 14px;
+}
+.weeklabels,
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+.weeklabels {
+  margin: 22px 0 8px;
+  color: #9ba59a;
+  font-size: 10px;
+  text-align: center;
+}
+#calendar button {
+  min-height: 34px;
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  border-radius: 9px;
+}
+#calendar button.selected {
+  background: #345c49;
+  color: #fff;
+}
+#calendar button.current {
+  box-shadow: inset 0 0 0 1px #587d58;
+}
+.wide {
+  width: 100%;
+  font-size: 11px;
+  margin: 18px 0;
+  background: #f6f8f3;
+}
+.legend {
+  font-size: 11px;
+  line-height: 2.4;
+  color: #758377;
+  border-top: 1px solid #edf0e8;
+  padding-top: 15px;
+}
+.legend span {
+  color: #84a971;
+  margin-right: 8px;
+}
+.legend .blue {
+  color: #7694be;
+}
+.asideNote {
+  font-size: 10px;
+  color: #879185;
+  margin-top: 16px;
+  line-height: 1.8;
+}
+.dayhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+h2 {
+  font-size: 25px;
+  letter-spacing: -0.7px;
+  margin: 10px 0 16px;
+}
+.dayhead button {
+  padding: 8px 12px;
+}
+.progressline {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #849080;
+  margin-top: 8px;
+}
+progress {
+  width: 100%;
+  height: 5px;
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0 20px;
+}
+progress::-webkit-progress-bar {
+  background: #e3e9df;
+}
+progress::-webkit-progress-value {
+  background: #7f9d6c;
+}
+.notice {
+  background: #fbf3e6;
+  border: 1px solid #eddfc7;
+  border-radius: 13px;
+  padding: 13px 16px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #85653d;
+  margin-bottom: 22px;
+}
+.notice p {
+  margin: 4px 0 0;
+}
+.group {
+  border: 1px solid #d9e5d5;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 18px 0;
+  background: #fff;
+}
+.grouphead {
+  display: flex;
+  justify-content: space-between;
+  background: #e8f0e2;
+  color: #4b6c45;
+  padding: 17px 20px;
+  align-items: center;
+}
+.grouphead strong {
+  font-size: 16px;
+}
+.grouphead span {
+  font-size: 12px;
+}
+.evening {
+  border-color: #dae2ee;
+}
+.evening .grouphead {
+  background: #e6edf7;
+  color: #526d91;
+}
+.night .grouphead {
+  background: #ebebf4;
+  color: #686583;
+}
+.night {
+  border-color: #e0dfed;
+}
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 20px;
+  border-top: 1px solid #f0f1eb;
+}
+.row input {
+  appearance: none;
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border: 1.5px solid #c6d3c0;
+  border-radius: 7px;
+  margin: 2px 0 0;
+  cursor: pointer;
+}
+.row input:checked {
+  background: #6f9464;
+  border-color: #6f9464;
+}
+.row input:checked:after {
+  content: '✓';
+  color: white;
+  display: block;
+  text-align: center;
+  font-weight: 800;
+}
+.row.done .name {
+  text-decoration: line-through;
+  color: #899486;
+}
+.row .name {
+  font-size: 13px;
+  font-weight: 700;
+}
+.row .dose {
+  font-size: 11px;
+  color: #7b887c;
+  margin-top: 5px;
+}
+.row .text {
+  flex: 1;
+}
+.badge {
+  font-size: 9px;
+  background: #faf0df;
+  color: #8d693d;
+  border-radius: 5px;
+  padding: 3px 5px;
+  display: inline-block;
+  margin: 4px 0;
+}
+.row details {
+  font-size: 10px;
+  color: #896e48;
+  line-height: 1.7;
+  margin-top: 6px;
+}
+.row details p {
+  margin: 4px 0;
+}
+.footnote {
+  font-size: 10px;
+  color: #8a9485;
+  text-align: center;
+  margin: 24px 0;
+}
+.sources {
+  font-size: 11px;
+  color: #788675;
+  line-height: 1.9;
+  margin: 30px 0;
+}
+.sources a {
+  color: #56765e;
+}
+footer {
+  border-top: 1px solid #dfe4db;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+  font-size: 11px;
+  color: #84917d;
+}
+dialog {
+  border: 1px solid #d8e1d3;
+  border-radius: 20px;
+  padding: 24px;
+  width: min(760px, 95vw);
+  max-height: 90vh;
+  color: #344b3d;
+}
+dialog::backdrop {
+  background: #14291b77;
+}
+dialog p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.editorhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.editorhead h2 {
+  margin: 0;
+}
+textarea {
+  width: 100%;
+  height: 45vh;
+  padding: 14px;
+  background: #f7f8f4;
+  border: 1px solid #dbe2d7;
+  border-radius: 12px;
+  font: 12px/1.7 monospace;
+  resize: vertical;
+}
+.editoractions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.primary {
+  background: #365e48;
+  color: #fff;
+}
+#configError {
+  color: #a23929;
+}
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: #788675;
+}
+@media (max-width: 760px) {
+  main {
+    padding: 20px 16px;
+  }
+  .intro {
+    padding: 30px 2px 20px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  aside {
+    padding: 16px 20px;
+  }
+  .asideNote,
+  .legend {
+    display: none;
+  }
+  .weeklabels {
+    margin-top: 10px;
+  }
+  #calendar button {
+    min-height: 37px;
+  }
+  .wide {
+    margin: 12px 0 0;
+  }
+  .dayhead h2 {
+    font-size: 22px;
+  }
+  .dayhead .eyebrow {
+    font-size: 9px;
+  }
+  .dayhead button {
+    padding: 6px 10px;
+  }
+  .row {
+    padding: 15px 16px;
+  }
+  .grouphead {
+    padding: 16px;
+  }
+  footer span {
+    max-width: 170px;
+    text-align: right;
+  }
+  header {
+    padding-bottom: 17px;
+  }
+  .brand {
+    font-size: 20px;
+  }
+}
+
+/* Keep the actual dose visually distinct from supporting instructions. */
+.row .dosage {
+  display: table;
+  margin-top: 7px;
+  padding: 5px 9px;
+  border: 1px solid #c3d5b9;
+  border-radius: 9px;
+  background: #edf4e7;
+  color: #294624;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+}
+.evening .row .dosage {
+  background: #eaf0fa;
+  border-color: #c5d4e9;
+  color: #304d76;
+}
+.night .row .dosage {
+  background: #f0eef8;
+  border-color: #d3cce6;
+  color: #524476;
+}
+.row.done .dosage {
+  opacity: 0.65;
+}
